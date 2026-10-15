@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Psychology_Wernicke_Aphasia</title>
+<style>
+body{
+    font-size:26px;
+    padding:30px;
+    line-height: 1.6;
+}
+select{
+    font-size:24px;
+    padding:6px 10px;
+}
+#sentence{
+    margin-top:25px;
+}
+.correct{
+    color: #28a745;
+    font-weight: bold;
+}
+.semantic{
+    color: #ffc107;
+    font-weight: bold;
+}
+.phonemic{
+    color: #fd7e14;
+    font-weight: bold;
+}
+.neologism{
+    color: #dc3545;
+    font-weight: bold;
+}
+.info{
+    font-size:20px;
+    margin-bottom:20px;
+}
+.legend{
+    font-size:20px;
+    margin-top:30px;
+}
+</style>
+</head>
+<body>
+<div class="info">
+    <strong>Content words are replaced by semantic paraphasias, phonemic paraphasias, and neologisms as severity rises.</strong>
+</div>
+
+<div>Severity:
+    <select id="severitySelect">
+        <option value="typical">Typical</option>
+        <option value="mild">Mild</option>
+        <option value="moderate">Moderate</option>
+        <option value="severe">Severe</option>
+    </select>
+</div>
+
+<div id="sentence"></div>
+
+<script>
+const sentenceList = {
+    typical: 'The little <span class="correct">girl</span> is eating an <span class="correct">apple</span> in the <span class="correct">kitchen</span>.',
+    mild: 'The little <span class="semantic">boy</span> is eating an <span class="semantic">orange</span> in the <span class="correct">kitchen</span>.',
+    moderate: 'The little <span class="semantic">boy</span> is <span class="phonemic">eatin</span> an <span class="semantic">orange</span> in the <span class="semantic">garden</span>.',
+    severe: 'The little <span class="semantic">boy</span> is <span class="phonemic">eatin</span> an <span class="neologism">orfel</span> in the <span class="semantic">garden</span>.'
+};
+
+const selectDom = document.getElementById('severitySelect');
+const sentenceDom = document.getElementById('sentence');
+
+selectDom.onchange = function(){
+    let val = this.value;
+    sentenceDom.innerHTML = sentenceList[val];
+}
+
+sentenceDom.innerHTML = sentenceList[selectDom.value];
+
+
+</script>
+</body>
+</html>
