@@ -58,6 +58,16 @@ select{
 
 <div id="sentence"></div>
 
+<div class="legend">
+    <p>
+        <span class="correct">correct</span> &nbsp;
+        <span class="semantic">semantic</span> &nbsp;
+        <span class="phonemic">phonemic</span> &nbsp;
+        <span class="neologism">neologism</span>
+    </p>
+</div>
+
+
 <script>
 const sentenceList = {
     typical: 'The little <span class="correct">girl</span> is eating an <span class="correct">apple</span> in the <span class="correct">kitchen</span>.',
@@ -65,6 +75,7 @@ const sentenceList = {
     moderate: 'The little <span class="semantic">boy</span> is <span class="phonemic">eatin</span> an <span class="semantic">orange</span> in the <span class="semantic">garden</span>.',
     severe: 'The little <span class="semantic">boy</span> is <span class="phonemic">eatin</span> an <span class="neologism">orfel</span> in the <span class="semantic">garden</span>.'
 };
+
 
 const selectDom = document.getElementById('severitySelect');
 const sentenceDom = document.getElementById('sentence');
